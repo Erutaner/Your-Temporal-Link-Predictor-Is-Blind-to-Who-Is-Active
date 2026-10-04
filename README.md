@@ -1,6 +1,6 @@
-# Reproduction package
+# Your Temporal Link Predictor Is Blind to Who Is Active: A Missing Factor That Transfers Across Models
 
-Everything behind the tables and figures of the paper: our model, the released code of the baselines we had to
+Reproduction package for the paper.  Everything behind its tables and figures: our model, the released code of the baselines we had to
 retrain (with the corrections we made), the result files of every run, and the scripts that turn those files into
 the paper's tables and figures.  No checkpoints and no data are included; `data/README.md` explains how to get the
 thirteen streams from their public source.
@@ -69,3 +69,8 @@ and averaged, as in DyGLib.
 Baseline numbers in the main tables come from the TPNet paper except where the released code had to be corrected;
 those cells are retrained by us and marked with a dagger.  `baselines/README.md` describes each correction and
 `experiments/01_main_comparison/README.md` lists which cells are affected.
+
+## License
+
+Our code is released under the MIT License (`LICENSE`).  The baseline trees in `baselines/` keep their upstream MIT
+licenses, which are included in each folder.
