@@ -1,0 +1,66 @@
+% requires booktabs
+\begin{table}[p]
+\caption{Number of training blocks and within-block updates, transductive and inductive link prediction: test AP (\%), mean{\scriptsize$\pm$std} over three seeds. $C$ = number of training blocks; $\star$ = the configuration of the main results. With within-block updates on, the events of the current block that precede the query time enter the counts, the feature states and the random projections; off, only the block-start state, decayed to the query time, is used. $f$ = the base score alone ($\beta=0$), $f{+}\lambda$ = with the source-activity term ($\beta$ chosen on validation). Bold: best of the six rows of a dataset. In the inductive setting both samplers draw from the same new-node subset, so only the historical columns are shown.}
+\label{tab:a2_event_clock}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{ccccccccc}
+\toprule
+ & \multicolumn{5}{c}{Transductive} & \multicolumn{3}{c}{Inductive} \\
+\cmidrule(lr){2-6} \cmidrule(lr){7-9}
+$C$ & rnd & hist $f$ & hist $f{+}\lambda$ & ind $f$ & ind $f{+}\lambda$ & rnd & hist $f$ & hist $f{+}\lambda$ \\
+\midrule
+\multicolumn{9}{l}{\textit{Wikipedia, within-block updates on}} \\
+48 & 98.92{\scriptsize$\pm$0.02} & 88.65{\scriptsize$\pm$0.46} & \textbf{93.29}{\scriptsize$\pm$0.05} & 85.20{\scriptsize$\pm$1.50} & 91.15{\scriptsize$\pm$0.12} & 98.35{\scriptsize$\pm$0.01} & 78.11{\scriptsize$\pm$1.50} & \textbf{88.35}{\scriptsize$\pm$0.13} \\
+96$^\star$ & \textbf{98.95}{\scriptsize$\pm$0.02} & 88.71{\scriptsize$\pm$0.80} & 93.25{\scriptsize$\pm$0.05} & \textbf{86.19}{\scriptsize$\pm$1.21} & \textbf{91.23}{\scriptsize$\pm$0.09} & 98.41{\scriptsize$\pm$0.03} & 77.78{\scriptsize$\pm$1.86} & 88.29{\scriptsize$\pm$0.13} \\
+192 & \textbf{98.95}{\scriptsize$\pm$0.04} & 86.98{\scriptsize$\pm$0.90} & 93.18{\scriptsize$\pm$0.18} & 83.11{\scriptsize$\pm$2.41} & 91.03{\scriptsize$\pm$0.26} & \textbf{98.42}{\scriptsize$\pm$0.03} & 75.75{\scriptsize$\pm$2.93} & 88.34{\scriptsize$\pm$0.01} \\
+\cmidrule(lr){1-9}
+\multicolumn{9}{l}{\textit{Wikipedia, within-block updates off}} \\
+48 & 98.72{\scriptsize$\pm$0.03} & 88.28{\scriptsize$\pm$0.98} & 89.26{\scriptsize$\pm$0.48} & 85.21{\scriptsize$\pm$0.71} & 87.48{\scriptsize$\pm$0.23} & 98.09{\scriptsize$\pm$0.02} & 78.44{\scriptsize$\pm$0.80} & 79.14{\scriptsize$\pm$0.52} \\
+96 & 98.77{\scriptsize$\pm$0.00} & \textbf{89.69}{\scriptsize$\pm$0.63} & 90.23{\scriptsize$\pm$0.45} & 85.48{\scriptsize$\pm$1.55} & 87.10{\scriptsize$\pm$0.79} & 98.19{\scriptsize$\pm$0.01} & \textbf{80.03}{\scriptsize$\pm$2.29} & 80.47{\scriptsize$\pm$1.67} \\
+192 & 98.83{\scriptsize$\pm$0.05} & 87.08{\scriptsize$\pm$1.23} & 89.72{\scriptsize$\pm$0.38} & 82.89{\scriptsize$\pm$1.91} & 86.04{\scriptsize$\pm$0.51} & 98.20{\scriptsize$\pm$0.06} & 77.60{\scriptsize$\pm$1.68} & 79.63{\scriptsize$\pm$1.04} \\
+\midrule
+\multicolumn{9}{l}{\textit{Reddit, within-block updates on}} \\
+48$^\star$ & 99.15{\scriptsize$\pm$0.00} & 82.74{\scriptsize$\pm$1.44} & \textbf{90.16}{\scriptsize$\pm$0.17} & \textbf{90.62}{\scriptsize$\pm$0.27} & \textbf{91.79}{\scriptsize$\pm$0.13} & 98.22{\scriptsize$\pm$0.02} & 67.54{\scriptsize$\pm$2.74} & 79.20{\scriptsize$\pm$0.34} \\
+96 & 99.16{\scriptsize$\pm$0.01} & 82.23{\scriptsize$\pm$1.35} & 90.07{\scriptsize$\pm$0.02} & 90.23{\scriptsize$\pm$0.36} & 91.57{\scriptsize$\pm$0.05} & 98.20{\scriptsize$\pm$0.04} & 67.09{\scriptsize$\pm$2.05} & 79.21{\scriptsize$\pm$0.13} \\
+192 & \textbf{99.18}{\scriptsize$\pm$0.01} & 82.96{\scriptsize$\pm$1.14} & 90.08{\scriptsize$\pm$0.13} & 90.52{\scriptsize$\pm$0.31} & 91.71{\scriptsize$\pm$0.19} & \textbf{98.24}{\scriptsize$\pm$0.03} & \textbf{69.01}{\scriptsize$\pm$1.35} & \textbf{79.36}{\scriptsize$\pm$0.14} \\
+\cmidrule(lr){1-9}
+\multicolumn{9}{l}{\textit{Reddit, within-block updates off}} \\
+48 & 99.11{\scriptsize$\pm$0.03} & \textbf{83.23}{\scriptsize$\pm$0.29} & 86.35{\scriptsize$\pm$0.15} & 90.19{\scriptsize$\pm$0.26} & 91.17{\scriptsize$\pm$0.02} & 98.03{\scriptsize$\pm$0.09} & 67.85{\scriptsize$\pm$0.35} & 71.14{\scriptsize$\pm$0.21} \\
+96 & 99.13{\scriptsize$\pm$0.02} & 81.27{\scriptsize$\pm$0.31} & 85.89{\scriptsize$\pm$0.04} & 89.88{\scriptsize$\pm$0.39} & 90.77{\scriptsize$\pm$0.33} & 98.08{\scriptsize$\pm$0.03} & 66.16{\scriptsize$\pm$1.47} & 70.63{\scriptsize$\pm$0.48} \\
+192 & 99.15{\scriptsize$\pm$0.01} & 82.45{\scriptsize$\pm$1.25} & 86.92{\scriptsize$\pm$0.21} & 90.28{\scriptsize$\pm$0.16} & 90.87{\scriptsize$\pm$0.17} & 98.09{\scriptsize$\pm$0.03} & 68.68{\scriptsize$\pm$1.46} & 72.08{\scriptsize$\pm$0.61} \\
+\midrule
+\multicolumn{9}{l}{\textit{UCI, within-block updates on}} \\
+48 & 95.79{\scriptsize$\pm$0.32} & 90.77{\scriptsize$\pm$0.34} & 95.61{\scriptsize$\pm$0.19} & 82.87{\scriptsize$\pm$0.19} & 87.90{\scriptsize$\pm$0.11} & 94.67{\scriptsize$\pm$0.09} & 83.61{\scriptsize$\pm$0.18} & 88.76{\scriptsize$\pm$0.10} \\
+96 & 95.59{\scriptsize$\pm$0.02} & 91.11{\scriptsize$\pm$0.54} & 95.96{\scriptsize$\pm$0.09} & 83.30{\scriptsize$\pm$0.23} & 87.90{\scriptsize$\pm$0.23} & 94.70{\scriptsize$\pm$0.09} & \textbf{84.13}{\scriptsize$\pm$0.22} & 88.85{\scriptsize$\pm$0.18} \\
+192$^\star$ & \textbf{95.81}{\scriptsize$\pm$0.41} & \textbf{91.47}{\scriptsize$\pm$0.52} & \textbf{96.04}{\scriptsize$\pm$0.17} & \textbf{83.35}{\scriptsize$\pm$0.29} & \textbf{88.18}{\scriptsize$\pm$0.04} & \textbf{94.74}{\scriptsize$\pm$0.12} & 84.08{\scriptsize$\pm$0.35} & \textbf{89.03}{\scriptsize$\pm$0.05} \\
+\cmidrule(lr){1-9}
+\multicolumn{9}{l}{\textit{UCI, within-block updates off}} \\
+48 & 94.81{\scriptsize$\pm$0.32} & 89.01{\scriptsize$\pm$0.22} & 89.01{\scriptsize$\pm$0.22} & 82.52{\scriptsize$\pm$0.19} & 82.52{\scriptsize$\pm$0.19} & 93.84{\scriptsize$\pm$0.05} & 82.72{\scriptsize$\pm$0.24} & 82.72{\scriptsize$\pm$0.24} \\
+96 & 94.77{\scriptsize$\pm$0.48} & 90.37{\scriptsize$\pm$0.18} & 91.56{\scriptsize$\pm$0.16} & 83.08{\scriptsize$\pm$0.40} & 83.08{\scriptsize$\pm$0.40} & 93.99{\scriptsize$\pm$0.20} & 83.41{\scriptsize$\pm$0.49} & 83.41{\scriptsize$\pm$0.49} \\
+192 & 95.26{\scriptsize$\pm$0.31} & 90.62{\scriptsize$\pm$0.71} & 92.35{\scriptsize$\pm$0.26} & 82.87{\scriptsize$\pm$0.04} & 82.87{\scriptsize$\pm$0.04} & 94.02{\scriptsize$\pm$0.20} & 83.32{\scriptsize$\pm$0.17} & 83.32{\scriptsize$\pm$0.17} \\
+\midrule
+\multicolumn{9}{l}{\textit{Enron, within-block updates on}} \\
+48 & 92.86{\scriptsize$\pm$0.17} & 73.85{\scriptsize$\pm$3.02} & 89.13{\scriptsize$\pm$0.50} & 79.09{\scriptsize$\pm$2.17} & 86.85{\scriptsize$\pm$1.12} & \textbf{89.74}{\scriptsize$\pm$0.28} & 69.11{\scriptsize$\pm$0.97} & 84.29{\scriptsize$\pm$0.39} \\
+96 & 92.86{\scriptsize$\pm$0.21} & 79.75{\scriptsize$\pm$1.44} & 89.82{\scriptsize$\pm$0.11} & 83.39{\scriptsize$\pm$0.78} & \textbf{89.37}{\scriptsize$\pm$0.16} & 89.70{\scriptsize$\pm$0.03} & 73.45{\scriptsize$\pm$1.81} & 84.55{\scriptsize$\pm$0.63} \\
+192$^\star$ & \textbf{93.09}{\scriptsize$\pm$0.21} & \textbf{84.04}{\scriptsize$\pm$2.43} & \textbf{90.26}{\scriptsize$\pm$0.77} & \textbf{85.32}{\scriptsize$\pm$0.85} & 89.04{\scriptsize$\pm$0.18} & 89.51{\scriptsize$\pm$0.10} & \textbf{78.56}{\scriptsize$\pm$2.85} & \textbf{85.57}{\scriptsize$\pm$0.91} \\
+\cmidrule(lr){1-9}
+\multicolumn{9}{l}{\textit{Enron, within-block updates off}} \\
+48 & 92.77{\scriptsize$\pm$0.27} & 76.04{\scriptsize$\pm$3.64} & 82.49{\scriptsize$\pm$1.11} & 80.08{\scriptsize$\pm$2.45} & 84.32{\scriptsize$\pm$1.42} & 89.38{\scriptsize$\pm$0.38} & 70.57{\scriptsize$\pm$2.89} & 74.42{\scriptsize$\pm$1.91} \\
+96 & 92.40{\scriptsize$\pm$0.29} & 76.90{\scriptsize$\pm$3.60} & 84.13{\scriptsize$\pm$1.21} & 81.36{\scriptsize$\pm$2.46} & 84.61{\scriptsize$\pm$1.73} & 89.20{\scriptsize$\pm$0.23} & 70.45{\scriptsize$\pm$3.53} & 75.47{\scriptsize$\pm$1.90} \\
+192 & \textbf{93.09}{\scriptsize$\pm$0.08} & 82.39{\scriptsize$\pm$5.58} & 88.13{\scriptsize$\pm$1.23} & 84.32{\scriptsize$\pm$3.19} & 87.55{\scriptsize$\pm$0.83} & 89.49{\scriptsize$\pm$0.26} & 76.47{\scriptsize$\pm$5.29} & 81.26{\scriptsize$\pm$1.61} \\
+\midrule
+\multicolumn{9}{l}{\textit{LastFM, within-block updates on}} \\
+48 & 90.30{\scriptsize$\pm$3.57} & 81.19{\scriptsize$\pm$2.41} & 94.86{\scriptsize$\pm$0.50} & 70.43{\scriptsize$\pm$3.01} & 89.48{\scriptsize$\pm$0.07} & 88.87{\scriptsize$\pm$6.30} & 73.36{\scriptsize$\pm$5.85} & 89.27{\scriptsize$\pm$0.65} \\
+96 & 91.17{\scriptsize$\pm$2.96} & 83.32{\scriptsize$\pm$0.86} & 95.32{\scriptsize$\pm$0.05} & 72.01{\scriptsize$\pm$1.12} & \textbf{89.83}{\scriptsize$\pm$0.57} & 90.12{\scriptsize$\pm$5.24} & 76.09{\scriptsize$\pm$2.46} & \textbf{90.13}{\scriptsize$\pm$0.57} \\
+192$^\star$ & 91.87{\scriptsize$\pm$1.35} & \textbf{84.60}{\scriptsize$\pm$1.20} & \textbf{95.36}{\scriptsize$\pm$0.03} & \textbf{73.96}{\scriptsize$\pm$0.95} & 89.82{\scriptsize$\pm$0.71} & 91.60{\scriptsize$\pm$2.72} & \textbf{78.38}{\scriptsize$\pm$0.70} & 90.12{\scriptsize$\pm$0.61} \\
+\cmidrule(lr){1-9}
+\multicolumn{9}{l}{\textit{LastFM, within-block updates off}} \\
+48 & \textbf{92.58}{\scriptsize$\pm$0.38} & 82.17{\scriptsize$\pm$1.68} & 87.80{\scriptsize$\pm$0.39} & 71.12{\scriptsize$\pm$0.75} & 78.48{\scriptsize$\pm$0.29} & \textbf{93.24}{\scriptsize$\pm$0.33} & 76.53{\scriptsize$\pm$0.39} & 77.96{\scriptsize$\pm$0.38} \\
+96 & 89.42{\scriptsize$\pm$2.52} & 81.00{\scriptsize$\pm$1.67} & 87.21{\scriptsize$\pm$1.27} & 69.08{\scriptsize$\pm$2.08} & 77.07{\scriptsize$\pm$0.82} & 87.47{\scriptsize$\pm$4.55} & 71.82{\scriptsize$\pm$4.01} & 74.68{\scriptsize$\pm$2.72} \\
+192 & 92.41{\scriptsize$\pm$0.40} & 84.30{\scriptsize$\pm$0.33} & 90.06{\scriptsize$\pm$0.07} & 73.40{\scriptsize$\pm$0.20} & 78.91{\scriptsize$\pm$0.14} & 92.99{\scriptsize$\pm$0.34} & 78.28{\scriptsize$\pm$0.02} & 79.77{\scriptsize$\pm$0.24} \\
+\bottomrule
+\end{tabular}
+\end{table}

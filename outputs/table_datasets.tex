@@ -1,0 +1,27 @@
+% requires booktabs
+\begin{table}[t]
+\caption{The thirteen streams, measured on the released files. Feat. = number of event feature columns that are not identically zero (no stream has node features; the benchmark pads every feature table to 172 columns; -- = none); Bip. = bipartite; span = time between the first and the last event; steps = number of distinct timestamps, in the unit of one time step. Decades = $\log_{10}$ of the ratio between the span of the training events and their smallest positive inter-event gap, the range the timescale grid covers; $K$ = the number of timescales it yields (two intervals per decade, at most 16). Tied = share of events that share their timestamp with another event, which a query at that time cannot see (Appendix~\ref{app:data_splits_visibility}). Rep. = share of test-period events whose node pair already occurred earlier in the stream. The spans of MOOC and LastFM differ from the durations given in the benchmark's own table (17 months and 1 month): the timestamps of the released files, in seconds, cover 30 days and 4.3 years.}
+\label{tab:datasets}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{1.5pt}
+\begin{tabular}{llrrcclrrrrr}
+\toprule
+Dataset & Domain & \#Nodes & \#Events & Feat. & Bip. & Span & Steps / unit & Decades & $K$ & Tied (\%) & Rep. (\%) \\
+\midrule
+Wikipedia & Social & 9,227 & 157,474 & 170 & yes & 31 d & 152,757 / s & 6.3 & 14 & 5.9 & 89.2 \\
+Reddit & Social & 10,984 & 672,447 & 172 & yes & 31 d & 669,065 / s & 9.3 & 16 & 1.0 & 93.1 \\
+MOOC & Interaction & 7,144 & 411,749 & 4 & yes & 30 d & 345,600 / s & 6.3 & 14 & 29.9 & 60.8 \\
+LastFM & Interaction & 1,980 & 1,293,103 & -- & yes & 4.3 yr & 1,283,614 / s & 8.0 & 16 & 1.4 & 90.7 \\
+Enron & Social & 184 & 125,235 & -- & no & 3.6 yr & 22,632 / s & 7.9 & 16 & 96.4 & 98.3 \\
+Social Evo. & Proximity & 74 & 2,099,519 & 2 & no & 242 d & 565,932 / s & 7.2 & 16 & 94.7 & 100.0 \\
+UCI & Social & 1,899 & 59,835 & -- & no & 194 d & 58,911 / s & 6.6 & 15 & 2.8 & 82.1 \\
+Flights & Transport & 13,169 & 1,927,145 & 1 & no & 121 d & 122 / day & 2.0 & 5 & 100.0 & 88.1 \\
+Can. Parl. & Politics & 734 & 74,478 & 1 & no & 13.0 yr & 14 / yr & 1.0 & 3 & 100.0 & 52.4 \\
+US Legis. & Politics & 225 & 60,396 & 1 & no & 11 congr. & 12 / congr. & 0.9 & 3 & 100.0 & 77.2 \\
+UN Trade & Economics & 255 & 507,497 & 1 & no & 31.0 yr & 32 / yr & 1.4 & 4 & 100.0 & 99.1 \\
+UN Vote & Politics & 201 & 1,035,742 & 1 & no & 71.0 yr & 72 / yr & 1.8 & 5 & 100.0 & 100.0 \\
+Contact & Proximity & 692 & 2,426,279 & 1 & no & 28 d & 8,064 / 5 min & 3.7 & 9 & 100.0 & 98.1 \\
+\bottomrule
+\end{tabular}
+\end{table}

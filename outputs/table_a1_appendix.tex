@@ -1,0 +1,46 @@
+% requires booktabs
+\begin{table}[p]
+\caption{Number of timescales $K$, transductive and inductive link prediction: test AP (\%), mean{\scriptsize$\pm$std} over three seeds, under random (rnd), historical (hist) and inductive (ind) negative sampling; $f$ = the base score alone ($\beta=0$), $f{+}\lambda$ = with the source-activity term ($\beta$ chosen on validation). $\star$: the configuration of the main results; $K=1$ keeps a single timescale at the centre of the covered range, the other rows use one, two and four intervals per decade of it. Bold: best of the four rows of a dataset. In the inductive setting both samplers draw from the same new-node subset and agree to within 0.06 at a fixed $\beta$, so only the historical columns are shown.}
+\label{tab:a1_scales_full}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{ccccccccc}
+\toprule
+ & \multicolumn{5}{c}{Transductive} & \multicolumn{3}{c}{Inductive} \\
+\cmidrule(lr){2-6} \cmidrule(lr){7-9}
+$K$ & rnd & hist $f$ & hist $f{+}\lambda$ & ind $f$ & ind $f{+}\lambda$ & rnd & hist $f$ & hist $f{+}\lambda$ \\
+\midrule
+\multicolumn{9}{l}{\textit{Wikipedia}} \\
+1 & 95.19{\scriptsize$\pm$0.02} & \textbf{89.51}{\scriptsize$\pm$0.03} & 91.91{\scriptsize$\pm$0.03} & \textbf{87.25}{\scriptsize$\pm$0.03} & 90.05{\scriptsize$\pm$0.07} & 95.61{\scriptsize$\pm$0.02} & \textbf{87.67}{\scriptsize$\pm$0.04} & \textbf{90.18}{\scriptsize$\pm$0.05} \\
+8 & \textbf{98.96}{\scriptsize$\pm$0.02} & 87.87{\scriptsize$\pm$1.75} & 93.22{\scriptsize$\pm$0.01} & 85.68{\scriptsize$\pm$1.47} & \textbf{91.43}{\scriptsize$\pm$0.03} & 98.40{\scriptsize$\pm$0.02} & 77.58{\scriptsize$\pm$2.64} & 88.49{\scriptsize$\pm$0.07} \\
+14$^\star$ & 98.95{\scriptsize$\pm$0.02} & 88.71{\scriptsize$\pm$0.80} & 93.25{\scriptsize$\pm$0.05} & 86.19{\scriptsize$\pm$1.21} & 91.23{\scriptsize$\pm$0.09} & \textbf{98.41}{\scriptsize$\pm$0.03} & 77.78{\scriptsize$\pm$1.86} & 88.29{\scriptsize$\pm$0.13} \\
+27 & 98.94{\scriptsize$\pm$0.02} & 88.39{\scriptsize$\pm$0.94} & \textbf{93.26}{\scriptsize$\pm$0.04} & 84.16{\scriptsize$\pm$2.83} & 90.85{\scriptsize$\pm$0.21} & 98.40{\scriptsize$\pm$0.06} & 77.66{\scriptsize$\pm$2.40} & 88.23{\scriptsize$\pm$0.11} \\
+\midrule
+\multicolumn{9}{l}{\textit{Reddit}} \\
+1 & 89.32{\scriptsize$\pm$0.05} & 73.97{\scriptsize$\pm$0.12} & 77.50{\scriptsize$\pm$0.30} & 80.17{\scriptsize$\pm$0.11} & 82.47{\scriptsize$\pm$0.11} & 85.42{\scriptsize$\pm$0.14} & 63.10{\scriptsize$\pm$0.25} & 67.71{\scriptsize$\pm$0.52} \\
+11 & \textbf{99.15}{\scriptsize$\pm$0.01} & 82.24{\scriptsize$\pm$0.22} & 90.14{\scriptsize$\pm$0.13} & 90.54{\scriptsize$\pm$0.10} & 91.78{\scriptsize$\pm$0.05} & 98.20{\scriptsize$\pm$0.03} & \textbf{67.66}{\scriptsize$\pm$0.67} & \textbf{79.24}{\scriptsize$\pm$0.06} \\
+16$^\star$ & \textbf{99.15}{\scriptsize$\pm$0.00} & \textbf{82.74}{\scriptsize$\pm$1.44} & \textbf{90.16}{\scriptsize$\pm$0.17} & \textbf{90.62}{\scriptsize$\pm$0.27} & \textbf{91.79}{\scriptsize$\pm$0.13} & 98.22{\scriptsize$\pm$0.02} & 67.54{\scriptsize$\pm$2.74} & 79.20{\scriptsize$\pm$0.34} \\
+32 & \textbf{99.15}{\scriptsize$\pm$0.01} & 81.73{\scriptsize$\pm$0.75} & 90.01{\scriptsize$\pm$0.07} & 90.15{\scriptsize$\pm$0.21} & 91.45{\scriptsize$\pm$0.17} & \textbf{98.23}{\scriptsize$\pm$0.02} & 65.83{\scriptsize$\pm$0.53} & 78.99{\scriptsize$\pm$0.15} \\
+\midrule
+\multicolumn{9}{l}{\textit{UCI}} \\
+1 & 83.62{\scriptsize$\pm$0.65} & 63.43{\scriptsize$\pm$0.85} & 79.48{\scriptsize$\pm$0.41} & 75.49{\scriptsize$\pm$0.96} & 84.60{\scriptsize$\pm$0.72} & 82.47{\scriptsize$\pm$1.11} & 74.77{\scriptsize$\pm$0.61} & 84.73{\scriptsize$\pm$0.52} \\
+8 & \textbf{96.18}{\scriptsize$\pm$0.14} & 90.52{\scriptsize$\pm$1.20} & 95.43{\scriptsize$\pm$0.32} & 83.26{\scriptsize$\pm$0.52} & 87.93{\scriptsize$\pm$0.41} & \textbf{94.77}{\scriptsize$\pm$0.16} & 83.71{\scriptsize$\pm$0.45} & 88.55{\scriptsize$\pm$0.20} \\
+15$^\star$ & 95.81{\scriptsize$\pm$0.41} & \textbf{91.47}{\scriptsize$\pm$0.52} & 96.04{\scriptsize$\pm$0.17} & \textbf{83.35}{\scriptsize$\pm$0.29} & 88.18{\scriptsize$\pm$0.04} & 94.74{\scriptsize$\pm$0.12} & \textbf{84.08}{\scriptsize$\pm$0.35} & 89.03{\scriptsize$\pm$0.05} \\
+28 & 95.86{\scriptsize$\pm$0.57} & 91.42{\scriptsize$\pm$0.21} & \textbf{96.12}{\scriptsize$\pm$0.10} & 83.09{\scriptsize$\pm$0.05} & \textbf{88.25}{\scriptsize$\pm$0.03} & 94.75{\scriptsize$\pm$0.06} & 84.01{\scriptsize$\pm$0.18} & \textbf{89.16}{\scriptsize$\pm$0.09} \\
+\midrule
+\multicolumn{9}{l}{\textit{Enron}} \\
+1 & 82.67{\scriptsize$\pm$0.23} & 74.24{\scriptsize$\pm$0.63} & 83.47{\scriptsize$\pm$0.26} & 72.51{\scriptsize$\pm$0.39} & 81.08{\scriptsize$\pm$0.40} & 79.19{\scriptsize$\pm$0.28} & 72.86{\scriptsize$\pm$0.88} & 81.09{\scriptsize$\pm$0.51} \\
+9 & \textbf{93.16}{\scriptsize$\pm$0.09} & 83.45{\scriptsize$\pm$1.18} & 90.46{\scriptsize$\pm$0.12} & 84.98{\scriptsize$\pm$0.48} & 88.92{\scriptsize$\pm$0.21} & \textbf{89.74}{\scriptsize$\pm$0.13} & 77.63{\scriptsize$\pm$1.03} & 85.44{\scriptsize$\pm$0.50} \\
+16$^\star$ & 93.09{\scriptsize$\pm$0.21} & 84.04{\scriptsize$\pm$2.43} & 90.26{\scriptsize$\pm$0.77} & 85.32{\scriptsize$\pm$0.85} & 89.04{\scriptsize$\pm$0.18} & 89.51{\scriptsize$\pm$0.10} & 78.56{\scriptsize$\pm$2.85} & 85.57{\scriptsize$\pm$0.91} \\
+32 & 93.07{\scriptsize$\pm$0.06} & \textbf{85.74}{\scriptsize$\pm$0.71} & \textbf{90.62}{\scriptsize$\pm$0.13} & \textbf{86.01}{\scriptsize$\pm$0.43} & \textbf{89.06}{\scriptsize$\pm$0.18} & 89.51{\scriptsize$\pm$0.11} & \textbf{80.45}{\scriptsize$\pm$0.56} & \textbf{85.82}{\scriptsize$\pm$0.19} \\
+\midrule
+\multicolumn{9}{l}{\textit{LastFM}} \\
+1 & 79.04{\scriptsize$\pm$0.12} & 73.39{\scriptsize$\pm$0.17} & 92.67{\scriptsize$\pm$0.01} & 68.91{\scriptsize$\pm$0.22} & 88.25{\scriptsize$\pm$0.25} & 84.32{\scriptsize$\pm$0.20} & 76.88{\scriptsize$\pm$0.14} & 89.87{\scriptsize$\pm$0.19} \\
+10 & 92.16{\scriptsize$\pm$0.66} & 84.53{\scriptsize$\pm$0.57} & 95.22{\scriptsize$\pm$0.08} & 73.16{\scriptsize$\pm$0.64} & 88.77{\scriptsize$\pm$0.32} & 92.80{\scriptsize$\pm$0.62} & 78.21{\scriptsize$\pm$0.59} & 89.26{\scriptsize$\pm$0.26} \\
+16$^\star$ & 91.87{\scriptsize$\pm$1.35} & \textbf{84.60}{\scriptsize$\pm$1.20} & \textbf{95.36}{\scriptsize$\pm$0.03} & \textbf{73.96}{\scriptsize$\pm$0.95} & \textbf{89.82}{\scriptsize$\pm$0.71} & 91.60{\scriptsize$\pm$2.72} & 78.38{\scriptsize$\pm$0.70} & \textbf{90.12}{\scriptsize$\pm$0.61} \\
+32 & \textbf{92.43}{\scriptsize$\pm$0.27} & 84.44{\scriptsize$\pm$0.09} & 95.29{\scriptsize$\pm$0.04} & 73.60{\scriptsize$\pm$0.54} & 89.43{\scriptsize$\pm$0.09} & \textbf{93.12}{\scriptsize$\pm$0.14} & \textbf{78.54}{\scriptsize$\pm$0.47} & 89.84{\scriptsize$\pm$0.19} \\
+\bottomrule
+\end{tabular}
+\end{table}

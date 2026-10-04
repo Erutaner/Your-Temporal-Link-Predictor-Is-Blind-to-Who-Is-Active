@@ -1,0 +1,11 @@
+{
+ "dataset": "USLegis",
+ "t_train": 12,
+ "chunk_mode": "native",
+ "epochs": 500,
+ "lr": 0.001,
+ "e_train": 1,
+ "dropout": 0.2,
+ "wd": 0.0,
+ "neg_pool": "train"
+}

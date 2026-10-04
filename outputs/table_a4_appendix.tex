@@ -1,0 +1,51 @@
+% requires booktabs
+\begin{table}[p]
+\caption{Which inputs of the relation branch carry the pair information: test AP (\%), mean{\scriptsize$\pm$std} over three seeds, transductive and inductive link prediction under random (rnd), historical (hist) and inductive (ind) negative sampling; $f$ = the base score alone ($\beta=0$), $f{+}\lambda$ = with the source-activity term ($\beta$ chosen on validation). $\star$: the configuration of the main results. The other rows retrain the model without the recent interaction encoding $c_{uv}(t)$ of the source's last 20 events, without the structural features from random projections (which removes the recent interaction encoding as well, since it reads them), without the pair and endpoint counts $n_{uv}^k$, $n_u^k$, $n_v^k$, and without all three (the node embeddings, the bilinear matches and the static term only). Bold: best of the rows of a stream. In the inductive setting both samplers draw from the same new-node subset and agree to within 0.06 at a fixed $\beta$, so only the historical columns are shown.}
+\label{tab:a4_trunk_channels}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{lcccccccc}
+\toprule
+ & \multicolumn{5}{c}{Transductive} & \multicolumn{3}{c}{Inductive} \\
+\cmidrule(lr){2-6} \cmidrule(lr){7-9}
+variant & rnd & hist $f$ & hist $f{+}\lambda$ & ind $f$ & ind $f{+}\lambda$ & rnd & hist $f$ & hist $f{+}\lambda$ \\
+\midrule
+\multicolumn{9}{l}{\textit{Wikipedia}} \\
+all inputs$^\star$ & \textbf{98.95}{\tiny$\pm$0.02} & 88.71{\tiny$\pm$0.80} & 93.25{\tiny$\pm$0.05} & 86.19{\tiny$\pm$1.21} & \textbf{91.23}{\tiny$\pm$0.09} & \textbf{98.41}{\tiny$\pm$0.03} & 77.78{\tiny$\pm$1.86} & 88.29{\tiny$\pm$0.13} \\
+no $c_{uv}$ & \textbf{98.95}{\tiny$\pm$0.02} & \textbf{90.37}{\tiny$\pm$0.69} & \textbf{93.36}{\tiny$\pm$0.08} & \textbf{87.80}{\tiny$\pm$0.37} & 91.16{\tiny$\pm$0.05} & 98.38{\tiny$\pm$0.01} & \textbf{81.79}{\tiny$\pm$1.32} & \textbf{88.41}{\tiny$\pm$0.05} \\
+no projections & 98.91{\tiny$\pm$0.02} & 89.54{\tiny$\pm$0.36} & 93.35{\tiny$\pm$0.07} & 84.95{\tiny$\pm$0.89} & 90.93{\tiny$\pm$0.13} & 98.30{\tiny$\pm$0.02} & 79.72{\tiny$\pm$1.04} & 88.39{\tiny$\pm$0.03} \\
+no counts & 98.25{\tiny$\pm$0.04} & 86.49{\tiny$\pm$1.09} & 92.94{\tiny$\pm$0.06} & 78.37{\tiny$\pm$1.97} & 90.54{\tiny$\pm$0.24} & 97.56{\tiny$\pm$0.09} & 74.19{\tiny$\pm$1.58} & 88.12{\tiny$\pm$0.11} \\
+none of the three & 97.83{\tiny$\pm$0.11} & 88.86{\tiny$\pm$0.40} & 93.11{\tiny$\pm$0.11} & 83.68{\tiny$\pm$0.56} & 91.11{\tiny$\pm$0.04} & 96.90{\tiny$\pm$0.15} & 78.41{\tiny$\pm$0.89} & 88.33{\tiny$\pm$0.14} \\
+\midrule
+\multicolumn{9}{l}{\textit{Reddit}} \\
+all inputs$^\star$ & \textbf{99.15}{\tiny$\pm$0.00} & 82.74{\tiny$\pm$1.44} & \textbf{90.16}{\tiny$\pm$0.17} & \textbf{90.62}{\tiny$\pm$0.27} & \textbf{91.79}{\tiny$\pm$0.13} & \textbf{98.22}{\tiny$\pm$0.02} & 67.54{\tiny$\pm$2.74} & 79.20{\tiny$\pm$0.34} \\
+no $c_{uv}$ & 99.13{\tiny$\pm$0.01} & 82.36{\tiny$\pm$0.33} & 90.01{\tiny$\pm$0.03} & 90.55{\tiny$\pm$0.12} & 91.69{\tiny$\pm$0.04} & 98.19{\tiny$\pm$0.02} & 68.83{\tiny$\pm$0.05} & 79.04{\tiny$\pm$0.05} \\
+no projections & 99.11{\tiny$\pm$0.01} & \textbf{83.12}{\tiny$\pm$1.18} & 89.96{\tiny$\pm$0.15} & 90.37{\tiny$\pm$0.06} & 91.55{\tiny$\pm$0.06} & 98.13{\tiny$\pm$0.02} & \textbf{69.08}{\tiny$\pm$1.26} & 79.04{\tiny$\pm$0.13} \\
+no counts & 98.72{\tiny$\pm$0.03} & 82.77{\tiny$\pm$0.51} & 90.00{\tiny$\pm$0.08} & 89.63{\tiny$\pm$0.18} & 91.12{\tiny$\pm$0.04} & 97.33{\tiny$\pm$0.07} & 65.53{\tiny$\pm$0.89} & \textbf{79.30}{\tiny$\pm$0.13} \\
+none of the three & 98.52{\tiny$\pm$0.01} & 82.46{\tiny$\pm$0.16} & 89.82{\tiny$\pm$0.03} & 89.87{\tiny$\pm$0.13} & 91.42{\tiny$\pm$0.06} & 96.57{\tiny$\pm$0.07} & 65.45{\tiny$\pm$0.36} & 78.38{\tiny$\pm$0.38} \\
+\midrule
+\multicolumn{9}{l}{\textit{UCI}} \\
+all inputs$^\star$ & 95.81{\tiny$\pm$0.41} & \textbf{91.47}{\tiny$\pm$0.52} & \textbf{96.04}{\tiny$\pm$0.17} & \textbf{83.35}{\tiny$\pm$0.29} & \textbf{88.18}{\tiny$\pm$0.04} & 94.74{\tiny$\pm$0.12} & 84.08{\tiny$\pm$0.35} & \textbf{89.03}{\tiny$\pm$0.05} \\
+no $c_{uv}$ & 95.91{\tiny$\pm$0.25} & 90.63{\tiny$\pm$0.15} & 95.83{\tiny$\pm$0.04} & 83.29{\tiny$\pm$0.16} & 87.80{\tiny$\pm$0.13} & 94.72{\tiny$\pm$0.13} & \textbf{84.23}{\tiny$\pm$0.22} & 88.78{\tiny$\pm$0.06} \\
+no projections & \textbf{95.92}{\tiny$\pm$0.23} & 90.26{\tiny$\pm$0.04} & 95.82{\tiny$\pm$0.01} & 82.92{\tiny$\pm$0.48} & 87.78{\tiny$\pm$0.03} & \textbf{94.80}{\tiny$\pm$0.11} & 84.02{\tiny$\pm$0.28} & 88.84{\tiny$\pm$0.13} \\
+no counts & 95.24{\tiny$\pm$0.07} & 89.68{\tiny$\pm$0.18} & 95.13{\tiny$\pm$0.17} & 76.19{\tiny$\pm$0.93} & 86.23{\tiny$\pm$0.28} & 92.65{\tiny$\pm$0.01} & 78.04{\tiny$\pm$1.04} & 87.55{\tiny$\pm$0.27} \\
+none of the three & 83.09{\tiny$\pm$1.05} & 62.12{\tiny$\pm$0.68} & 91.69{\tiny$\pm$0.29} & 59.73{\tiny$\pm$0.53} & 84.15{\tiny$\pm$0.08} & 74.90{\tiny$\pm$1.27} & 59.66{\tiny$\pm$1.66} & 85.46{\tiny$\pm$0.06} \\
+\midrule
+\multicolumn{9}{l}{\textit{Enron}} \\
+all inputs$^\star$ & 93.09{\tiny$\pm$0.21} & 84.04{\tiny$\pm$2.43} & 90.26{\tiny$\pm$0.77} & 85.32{\tiny$\pm$0.85} & 89.04{\tiny$\pm$0.18} & 89.51{\tiny$\pm$0.10} & 78.56{\tiny$\pm$2.85} & 85.57{\tiny$\pm$0.91} \\
+no $c_{uv}$ & \textbf{93.12}{\tiny$\pm$0.05} & \textbf{85.54}{\tiny$\pm$0.28} & \textbf{90.62}{\tiny$\pm$0.09} & \textbf{86.07}{\tiny$\pm$0.23} & \textbf{89.16}{\tiny$\pm$0.23} & \textbf{89.62}{\tiny$\pm$0.21} & \textbf{80.32}{\tiny$\pm$0.25} & \textbf{85.79}{\tiny$\pm$0.47} \\
+no projections & 92.67{\tiny$\pm$0.11} & 81.73{\tiny$\pm$1.39} & 89.88{\tiny$\pm$0.11} & 84.35{\tiny$\pm$0.87} & 89.02{\tiny$\pm$0.21} & 89.25{\tiny$\pm$0.21} & 76.04{\tiny$\pm$2.46} & 84.59{\tiny$\pm$0.75} \\
+no counts & 91.16{\tiny$\pm$0.19} & 78.87{\tiny$\pm$1.41} & 89.33{\tiny$\pm$0.22} & 78.27{\tiny$\pm$2.16} & 87.00{\tiny$\pm$0.29} & 84.45{\tiny$\pm$0.43} & 70.73{\tiny$\pm$1.82} & 84.21{\tiny$\pm$0.27} \\
+none of the three & 87.59{\tiny$\pm$0.28} & 73.89{\tiny$\pm$0.27} & 87.24{\tiny$\pm$0.47} & 77.60{\tiny$\pm$0.74} & 86.50{\tiny$\pm$0.90} & 77.80{\tiny$\pm$0.38} & 64.10{\tiny$\pm$0.62} & 81.23{\tiny$\pm$0.29} \\
+\midrule
+\multicolumn{9}{l}{\textit{LastFM}} \\
+all inputs$^\star$ & 91.87{\tiny$\pm$1.35} & \textbf{84.60}{\tiny$\pm$1.20} & \textbf{95.36}{\tiny$\pm$0.03} & \textbf{73.96}{\tiny$\pm$0.95} & 89.82{\tiny$\pm$0.71} & 91.60{\tiny$\pm$2.72} & \textbf{78.38}{\tiny$\pm$0.70} & 90.12{\tiny$\pm$0.61} \\
+no $c_{uv}$ & \textbf{92.86}{\tiny$\pm$0.15} & 82.57{\tiny$\pm$0.64} & 95.26{\tiny$\pm$0.03} & 70.33{\tiny$\pm$0.18} & 90.28{\tiny$\pm$0.09} & \textbf{93.69}{\tiny$\pm$0.11} & 76.59{\tiny$\pm$0.40} & 90.78{\tiny$\pm$0.02} \\
+no projections & 92.77{\tiny$\pm$0.05} & 82.34{\tiny$\pm$0.45} & 95.32{\tiny$\pm$0.03} & 71.63{\tiny$\pm$0.47} & \textbf{90.49}{\tiny$\pm$0.11} & 93.47{\tiny$\pm$0.01} & 77.08{\tiny$\pm$0.46} & \textbf{90.86}{\tiny$\pm$0.05} \\
+no counts & 87.81{\tiny$\pm$0.77} & 83.87{\tiny$\pm$0.44} & 94.56{\tiny$\pm$0.07} & 73.10{\tiny$\pm$0.99} & 88.35{\tiny$\pm$0.29} & 89.36{\tiny$\pm$0.89} & 78.08{\tiny$\pm$1.11} & 88.75{\tiny$\pm$0.27} \\
+none of the three & 81.53{\tiny$\pm$0.28} & 75.33{\tiny$\pm$0.55} & 93.95{\tiny$\pm$0.04} & 67.95{\tiny$\pm$0.43} & 89.38{\tiny$\pm$0.56} & 84.06{\tiny$\pm$0.42} & 70.27{\tiny$\pm$0.96} & 89.18{\tiny$\pm$0.49} \\
+\bottomrule
+\end{tabular}
+\end{table}

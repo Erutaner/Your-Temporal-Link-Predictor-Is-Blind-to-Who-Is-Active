@@ -1,0 +1,11 @@
+{
+ "dataset": "wikipedia",
+ "t_train": 96,
+ "chunk_mode": "equal",
+ "epochs": 500,
+ "lr": 0.001,
+ "e_train": 0,
+ "dropout": 0.0,
+ "wd": 0.0,
+ "neg_pool": "seen"
+}

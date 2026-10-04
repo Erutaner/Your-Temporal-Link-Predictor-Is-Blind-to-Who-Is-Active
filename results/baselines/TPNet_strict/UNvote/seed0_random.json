@@ -1,0 +1,10 @@
+{
+    "test metrics": {
+        "average_precision": "0.5804",
+        "roc_auc": "0.6158"
+    },
+    "new node test metrics": {
+        "average_precision": "0.5615",
+        "roc_auc": "0.6124"
+    }
+}

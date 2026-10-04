@@ -1,0 +1,34 @@
+% requires booktabs
+\begin{table}[t]
+\caption{Form of the source-activity term, remaining protocols: test AP (\%), mean{\scriptsize$\pm$std} over three seeds, for the score $f+\beta\,b$ with the term $b$ replaced on the same checkpoints ($\beta$ chosen on validation; under random negatives every variant selects $\beta=0$). $n_u^k$ is the source's decayed event count at scale $k$ ($K$ the slowest); $\Delta t_u$ is the time elapsed since the source's previous event, so $-\log(1+\Delta t_u)$ is a recency score; the MLP is a two-layer network on $\log(1+n_u)$ fitted on the training period. In the inductive setting the historical and inductive samplers draw from the same new-node subset, so only the historical protocol is shown. $\star$: the main results. Bold: best within a block.}
+\label{tab:a3_appendix}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{lccccc}
+\toprule
+term $b$ & Wikipedia & Reddit & UCI & Enron & LastFM \\
+\midrule
+\multicolumn{6}{l}{\textit{Transductive setting, historical negatives}} \\
+\midrule
+none ($f$ alone, $\beta=0$) & 88.71{\scriptsize$\pm$0.80} & 82.74{\scriptsize$\pm$1.44} & 91.47{\scriptsize$\pm$0.52} & 84.04{\scriptsize$\pm$2.43} & 84.60{\scriptsize$\pm$1.20} \\
+$\log\lambda_u$ (SNAM)$^\star$ & 93.25{\scriptsize$\pm$0.05} & 90.16{\scriptsize$\pm$0.17} & 96.04{\scriptsize$\pm$0.17} & 90.26{\scriptsize$\pm$0.77} & 95.36{\scriptsize$\pm$0.03} \\
+\cmidrule(lr){1-6}
+$\log(1+n_u^{K})$ & 89.03{\scriptsize$\pm$0.54} & 85.25{\scriptsize$\pm$0.61} & 91.47{\scriptsize$\pm$0.52} & 84.03{\scriptsize$\pm$2.43} & 87.15{\scriptsize$\pm$0.54} \\
+$\log(1+n_u^{K/2})$ & 91.67{\scriptsize$\pm$0.19} & 83.92{\scriptsize$\pm$1.23} & 95.03{\scriptsize$\pm$0.34} & 88.98{\scriptsize$\pm$1.56} & 92.71{\scriptsize$\pm$0.32} \\
+$-\log(1+\Delta t_u)$ & 93.33{\scriptsize$\pm$0.04} & 90.29{\scriptsize$\pm$0.21} & 96.02{\scriptsize$\pm$0.08} & 88.96{\scriptsize$\pm$0.89} & 95.30{\scriptsize$\pm$0.03} \\
+MLP on $\log(1+n_u)$ & \textbf{93.42}{\scriptsize$\pm$0.08} & \textbf{90.51}{\scriptsize$\pm$0.15} & \textbf{96.22}{\scriptsize$\pm$0.08} & \textbf{90.55}{\scriptsize$\pm$0.88} & \textbf{95.61}{\scriptsize$\pm$0.02} \\
+\midrule
+\multicolumn{6}{l}{\textit{Inductive setting, historical negatives}} \\
+\midrule
+none ($f$ alone, $\beta=0$) & 77.78{\scriptsize$\pm$1.86} & 67.54{\scriptsize$\pm$2.74} & 84.08{\scriptsize$\pm$0.35} & 78.56{\scriptsize$\pm$2.85} & 78.38{\scriptsize$\pm$0.70} \\
+$\log\lambda_u$ (SNAM)$^\star$ & \textbf{88.29}{\scriptsize$\pm$0.13} & 79.20{\scriptsize$\pm$0.34} & 89.03{\scriptsize$\pm$0.05} & \textbf{85.57}{\scriptsize$\pm$0.91} & 90.12{\scriptsize$\pm$0.61} \\
+\cmidrule(lr){1-6}
+$\log(1+n_u^{K})$ & 78.47{\scriptsize$\pm$1.67} & 71.19{\scriptsize$\pm$1.46} & 84.08{\scriptsize$\pm$0.35} & 78.96{\scriptsize$\pm$2.76} & 79.72{\scriptsize$\pm$0.23} \\
+$\log(1+n_u^{K/2})$ & 84.85{\scriptsize$\pm$0.76} & 69.50{\scriptsize$\pm$2.27} & 87.20{\scriptsize$\pm$0.52} & 83.88{\scriptsize$\pm$1.54} & 86.70{\scriptsize$\pm$0.67} \\
+$-\log(1+\Delta t_u)$ & 88.15{\scriptsize$\pm$0.08} & 79.37{\scriptsize$\pm$0.36} & \textbf{89.51}{\scriptsize$\pm$0.03} & 83.83{\scriptsize$\pm$0.57} & \textbf{90.50}{\scriptsize$\pm$0.59} \\
+MLP on $\log(1+n_u)$ & 88.10{\scriptsize$\pm$0.15} & \textbf{79.65}{\scriptsize$\pm$0.31} & 89.26{\scriptsize$\pm$0.08} & 85.32{\scriptsize$\pm$1.05} & 90.41{\scriptsize$\pm$0.62} \\
+\bottomrule
+\end{tabular}
+\end{table}

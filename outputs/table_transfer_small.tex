@@ -1,0 +1,28 @@
+% requires booktabs
+\begin{table}[t]
+\caption{Transfer of the source-activity term: transductive test AP (\%) under historical negative sampling for four backbones, alone and with $\beta\log\lambda_u$ added to their logits, mean{\tiny$\pm$std} over three seeds (DyGFormer on LastFM: one). The backbone is not retrained and $\lambda_u$ keeps the parameters fitted for our model on the same dataset; only $\beta$ is chosen on the backbone's validation split. $\dagger$: retrained by us with the corrected released code.}
+\label{tab:transfer}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{llccccc}
+\toprule
+backbone & score & Wikipedia & Reddit & UCI & Enron & LastFM \\
+\midrule
+\multirow{2}{*}{TPNet} & alone & 83.44{\tiny$\pm$0.93} & 80.22{\tiny$\pm$0.21} & 86.59{\tiny$\pm$1.15} & 81.74{\tiny$\pm$0.56} & 87.26{\tiny$\pm$0.90} \\
+ & $+\beta\log\lambda_u$ & \textbf{92.99{\tiny$\pm$0.06}} & \textbf{90.79{\tiny$\pm$0.17}} & \textbf{94.98{\tiny$\pm$0.12}} & \textbf{91.38{\tiny$\pm$0.20}} & \textbf{96.00{\tiny$\pm$0.02}} \\
+\midrule
+\multirow{2}{*}{TGN$^\dagger$} & alone & 86.79{\tiny$\pm$0.74} & 80.23{\tiny$\pm$0.42} & 80.10{\tiny$\pm$1.06} & 73.89{\tiny$\pm$1.37} & 77.31{\tiny$\pm$5.13} \\
+ & $+\beta\log\lambda_u$ & \textbf{92.52{\tiny$\pm$0.06}} & \textbf{89.11{\tiny$\pm$0.09}} & \textbf{93.35{\tiny$\pm$0.18}} & \textbf{87.87{\tiny$\pm$0.53}} & \textbf{93.70{\tiny$\pm$0.24}} \\
+\midrule
+\multirow{2}{*}{DyGFormer$^\dagger$} & alone & 76.01{\tiny$\pm$0.51} & 81.32{\tiny$\pm$1.36} & 81.59{\tiny$\pm$0.61} & 76.60{\tiny$\pm$0.54} & 81.61 \\
+ & $+\beta\log\lambda_u$ & \textbf{92.29{\tiny$\pm$0.05}} & \textbf{90.30{\tiny$\pm$0.22}} & \textbf{93.80{\tiny$\pm$0.16}} & \textbf{89.04{\tiny$\pm$0.35}} & \textbf{95.10} \\
+\midrule
+\multirow{2}{*}{DSRD$^\dagger$} & alone & 90.80{\tiny$\pm$0.19} & 88.08{\tiny$\pm$0.63} & 87.08{\tiny$\pm$0.39} & 86.79{\tiny$\pm$0.14} & 85.88{\tiny$\pm$1.52} \\
+ & $+\beta\log\lambda_u$ & \textbf{93.73{\tiny$\pm$0.05}} & \textbf{92.88{\tiny$\pm$0.14}} & \textbf{95.44{\tiny$\pm$0.09}} & \textbf{93.14{\tiny$\pm$0.38}} & \textbf{96.88{\tiny$\pm$0.01}} \\
+\midrule
+\multicolumn{2}{l}{Ours ($f+\beta\log\lambda_u$)} & 93.28{\tiny$\pm$0.08} & 90.01{\tiny$\pm$0.25} & 96.00{\tiny$\pm$0.15} & 90.42{\tiny$\pm$0.64} & 95.30{\tiny$\pm$0.09} \\
+\bottomrule
+\end{tabular}
+\end{table}

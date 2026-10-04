@@ -1,0 +1,21 @@
+% requires booktabs
+\begin{table}[t]
+\caption{What the score contains, transductive test AP (\%) under historical negative sampling, mean{\tiny$\pm$std} over seeds (three for our rows and DyGFormer$^\dagger$, one on LastFM; five for the rest). $f$ only: the base score ($\beta=0$); $\log\lambda_u$ only: the source's event rate only, with no pair information. $\dagger$: retrained by us with the corrected released code. Bold: best.}
+\label{tab:i1_decomposition}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{0.9}
+\begin{tabular}{lccccc}
+\toprule
+ & Wikipedia & Reddit & UCI & Enron & LastFM \\
+\midrule
+DyGFormer$^\dagger$ & 76.01{\tiny$\pm$0.51} & 81.32{\tiny$\pm$1.35} & 81.59{\tiny$\pm$0.61} & 76.60{\tiny$\pm$0.54} & 81.61 \\
+TPNet & 81.55{\tiny$\pm$4.10} & 81.02{\tiny$\pm$1.31} & 86.34{\tiny$\pm$0.80} & 80.79{\tiny$\pm$1.68} & 87.74{\tiny$\pm$0.50} \\
+\midrule
+$f$ only & 88.71{\tiny$\pm$0.80} & 82.74{\tiny$\pm$1.44} & 91.47{\tiny$\pm$0.52} & 84.04{\tiny$\pm$2.43} & 84.60{\tiny$\pm$1.20} \\
+$\log\lambda_u$ only & 90.67{\tiny$\pm$0.01} & 80.65{\tiny$\pm$0.01} & 91.77{\tiny$\pm$0.01} & 83.59{\tiny$\pm$0.00} & 93.19{\tiny$\pm$0.00} \\
+$f+\beta\log\lambda_u$ & \textbf{93.25{\tiny$\pm$0.05}} & \textbf{90.16{\tiny$\pm$0.17}} & \textbf{96.04{\tiny$\pm$0.17}} & \textbf{90.26{\tiny$\pm$0.77}} & \textbf{95.36{\tiny$\pm$0.03}} \\
+\bottomrule
+\end{tabular}
+\end{table}

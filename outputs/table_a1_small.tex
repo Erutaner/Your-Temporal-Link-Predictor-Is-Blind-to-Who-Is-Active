@@ -1,0 +1,28 @@
+% requires booktabs
+\begin{table}[t]
+\caption{Number of timescales $K$: transductive test AP (\%), mean{\tiny$\pm$std} over three seeds, under random (rnd), historical (hist) and inductive (ind) negative sampling. $\star$: the configuration of the main results; $K=1$ keeps a single timescale at the centre of the covered range. Bold: best per column.}
+\label{tab:a1_scales}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.92}
+\begin{tabular}{cccc}
+\toprule
+$K$ & rnd & hist & ind \\
+\midrule
+\multicolumn{4}{c}{\textit{UCI}} \\
+\midrule
+1 & 83.62{\tiny$\pm$0.65} & 79.48{\tiny$\pm$0.41} & 84.60{\tiny$\pm$0.72} \\
+8 & \textbf{96.18}{\tiny$\pm$0.14} & 95.43{\tiny$\pm$0.32} & 87.93{\tiny$\pm$0.41} \\
+15$^\star$ & 95.81{\tiny$\pm$0.41} & 96.04{\tiny$\pm$0.17} & 88.18{\tiny$\pm$0.04} \\
+28 & 95.86{\tiny$\pm$0.57} & \textbf{96.12}{\tiny$\pm$0.10} & \textbf{88.25}{\tiny$\pm$0.03} \\
+\midrule
+\multicolumn{4}{c}{\textit{Reddit}} \\
+\midrule
+1 & 89.32{\tiny$\pm$0.05} & 77.50{\tiny$\pm$0.30} & 82.47{\tiny$\pm$0.11} \\
+11 & \textbf{99.15}{\tiny$\pm$0.01} & 90.14{\tiny$\pm$0.13} & 91.78{\tiny$\pm$0.05} \\
+16$^\star$ & \textbf{99.15}{\tiny$\pm$0.00} & \textbf{90.16}{\tiny$\pm$0.17} & \textbf{91.79}{\tiny$\pm$0.13} \\
+32 & \textbf{99.15}{\tiny$\pm$0.01} & 90.01{\tiny$\pm$0.07} & 91.45{\tiny$\pm$0.17} \\
+\bottomrule
+\end{tabular}
+\end{table}

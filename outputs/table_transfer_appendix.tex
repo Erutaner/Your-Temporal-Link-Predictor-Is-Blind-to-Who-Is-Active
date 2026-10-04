@@ -1,0 +1,48 @@
+% requires booktabs
+\begin{table}[t]
+\caption{Transfer of the source-activity term, remaining protocols: what each backbone gains over itself. Test AP (\%) of the backbone alone and with $\beta\log\lambda_u$ added to its logits, and the difference $\Delta$, in the transductive setting under inductive (ind) negatives and in the inductive setting under historical (hist) negatives; the transductive setting under historical negatives is in Table~\ref{tab:transfer}. Mean{\scriptsize$\pm$std} over three seeds (DyGFormer$^\dagger$ on LastFM: one), the std of $\Delta$ over the per-seed differences; the mean row averages the five streams. $\lambda_u$ keeps the parameters fitted for our model on the same stream and $\beta$ is chosen on the backbone's validation split. Under random negatives the validation split selects $\beta=0$ for every backbone and seed, so the backbone's score is unchanged there and those columns are omitted. In the inductive setting the two samplers draw from the same new-node subset, so only the historical protocol is shown. $\dagger$: retrained by us with the corrected released code.}
+\label{tab:transfer_appendix}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{3}{c}{Transductive, ind} & \multicolumn{3}{c}{Inductive, hist} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+backbone / stream & alone & $+\lambda$ & $\Delta$ & alone & $+\lambda$ & $\Delta$ \\
+\midrule
+\multicolumn{7}{l}{\textit{TPNet}} \\
+Wikipedia & 82.13{\tiny$\pm$3.35} & 91.18{\tiny$\pm$0.26} & +9.05{\tiny$\pm$3.10} & 74.81{\tiny$\pm$1.88} & 88.83{\tiny$\pm$0.06} & +14.02{\tiny$\pm$1.83} \\
+Reddit & 87.92{\tiny$\pm$0.54} & 90.10{\tiny$\pm$0.36} & +2.19{\tiny$\pm$0.18} & 61.70{\tiny$\pm$0.32} & 80.27{\tiny$\pm$0.25} & +18.57{\tiny$\pm$0.08} \\
+UCI & 77.42{\tiny$\pm$2.63} & 87.40{\tiny$\pm$0.58} & +9.98{\tiny$\pm$2.54} & 78.65{\tiny$\pm$1.83} & 88.61{\tiny$\pm$0.30} & +9.96{\tiny$\pm$1.75} \\
+Enron & 76.75{\tiny$\pm$0.44} & 87.28{\tiny$\pm$0.19} & +10.53{\tiny$\pm$0.25} & 74.96{\tiny$\pm$0.40} & 86.38{\tiny$\pm$0.21} & +11.42{\tiny$\pm$0.61} \\
+LastFM & 76.63{\tiny$\pm$1.29} & 91.71{\tiny$\pm$0.13} & +15.08{\tiny$\pm$1.20} & 80.76{\tiny$\pm$1.22} & 92.21{\tiny$\pm$0.05} & +11.46{\tiny$\pm$1.22} \\
+\textit{mean} & 80.17 & 89.53 & +9.37 & 74.18 & 87.26 & +13.08 \\
+\midrule
+\multicolumn{7}{l}{\textit{TGN$^\dagger$}} \\
+Wikipedia & 85.17{\tiny$\pm$0.98} & 91.33{\tiny$\pm$0.11} & +6.16{\tiny$\pm$0.88} & 81.86{\tiny$\pm$1.01} & 89.03{\tiny$\pm$0.02} & +7.17{\tiny$\pm$1.00} \\
+Reddit & 87.66{\tiny$\pm$0.40} & 89.39{\tiny$\pm$0.28} & +1.72{\tiny$\pm$0.12} & 63.95{\tiny$\pm$0.22} & 79.37{\tiny$\pm$0.17} & +15.42{\tiny$\pm$0.15} \\
+UCI & 70.75{\tiny$\pm$0.29} & 84.65{\tiny$\pm$0.10} & +13.91{\tiny$\pm$0.29} & 70.67{\tiny$\pm$0.36} & 85.78{\tiny$\pm$0.13} & +15.12{\tiny$\pm$0.25} \\
+Enron & 72.80{\tiny$\pm$0.33} & 85.73{\tiny$\pm$0.73} & +12.93{\tiny$\pm$0.57} & 62.50{\tiny$\pm$0.56} & 82.93{\tiny$\pm$0.18} & +20.43{\tiny$\pm$0.68} \\
+LastFM & 69.84{\tiny$\pm$4.59} & 90.21{\tiny$\pm$0.25} & +20.37{\tiny$\pm$4.35} & 75.05{\tiny$\pm$2.11} & 90.50{\tiny$\pm$0.10} & +15.46{\tiny$\pm$2.03} \\
+\textit{mean} & 77.25 & 88.26 & +11.02 & 70.80 & 85.52 & +14.72 \\
+\midrule
+\multicolumn{7}{l}{\textit{DyGFormer$^\dagger$}} \\
+Wikipedia & 69.34{\tiny$\pm$0.32} & 90.48{\tiny$\pm$0.06} & +21.14{\tiny$\pm$0.35} & 63.40{\tiny$\pm$1.23} & 88.51{\tiny$\pm$0.04} & +25.11{\tiny$\pm$1.25} \\
+Reddit & 91.51{\tiny$\pm$0.51} & 92.63{\tiny$\pm$0.40} & +1.11{\tiny$\pm$0.14} & 64.83{\tiny$\pm$2.14} & 80.25{\tiny$\pm$0.24} & +15.42{\tiny$\pm$2.38} \\
+UCI & 72.05{\tiny$\pm$0.62} & 85.73{\tiny$\pm$0.11} & +13.68{\tiny$\pm$0.52} & 71.74{\tiny$\pm$0.77} & 86.89{\tiny$\pm$0.09} & +15.16{\tiny$\pm$0.68} \\
+Enron & 77.46{\tiny$\pm$0.21} & 85.59{\tiny$\pm$0.40} & +8.12{\tiny$\pm$0.19} & 66.13{\tiny$\pm$0.49} & 82.43{\tiny$\pm$1.13} & +16.30{\tiny$\pm$0.66} \\
+LastFM & 73.56 & 90.88 & +17.32 & 76.57 & 90.96 & +14.39 \\
+\textit{mean} & 76.78 & 89.06 & +12.28 & 68.53 & 85.81 & +17.27 \\
+\midrule
+\multicolumn{7}{l}{\textit{DSRD$^\dagger$}} \\
+Wikipedia & 87.88{\tiny$\pm$0.14} & 91.34{\tiny$\pm$0.06} & +3.47{\tiny$\pm$0.12} & 86.41{\tiny$\pm$0.44} & 89.72{\tiny$\pm$0.02} & +3.31{\tiny$\pm$0.45} \\
+Reddit & 93.46{\tiny$\pm$0.04} & 94.09{\tiny$\pm$0.04} & +0.63{\tiny$\pm$0.01} & 80.20{\tiny$\pm$1.04} & 86.87{\tiny$\pm$0.25} & +6.67{\tiny$\pm$0.79} \\
+UCI & 80.64{\tiny$\pm$0.19} & 88.86{\tiny$\pm$0.18} & +8.21{\tiny$\pm$0.26} & 82.51{\tiny$\pm$0.21} & 90.13{\tiny$\pm$0.34} & +7.61{\tiny$\pm$0.47} \\
+Enron & 85.32{\tiny$\pm$0.05} & 91.22{\tiny$\pm$0.20} & +5.91{\tiny$\pm$0.19} & 83.60{\tiny$\pm$0.18} & 89.21{\tiny$\pm$0.42} & +5.61{\tiny$\pm$0.26} \\
+LastFM & 83.87{\tiny$\pm$1.43} & 94.95{\tiny$\pm$0.02} & +11.08{\tiny$\pm$1.42} & 86.50{\tiny$\pm$2.55} & 95.40{\tiny$\pm$0.03} & +8.90{\tiny$\pm$2.55} \\
+\textit{mean} & 86.23 & 92.09 & +5.86 & 83.84 & 90.27 & +6.42 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,18 @@
+{
+ "tolerance": 1.0,
+ "leak": {
+  "CanParl": true,
+  "Contacts": false,
+  "Flights": false,
+  "SocialEvo": false,
+  "UNtrade": true,
+  "UNvote": true,
+  "USLegis": true,
+  "enron": false,
+  "lastfm": false,
+  "mooc": false,
+  "reddit": false,
+  "uci": false,
+  "wikipedia": false
+ }
+}

@@ -1,0 +1,22 @@
+% requires booktabs
+\begin{table}[t]
+\caption{Form of the source-activity term: transductive test AP (\%) under inductive negative sampling, mean{\tiny$\pm$std} over three seeds, for the score $f+\beta\,b$ with the term $b$ replaced on the same checkpoints ($\beta$ chosen on validation; under random negatives every variant selects $\beta=0$). $n_u^k$ is the source's decayed event count at timescale $k$ ($K$ the slowest); $\Delta t_u$ is the time elapsed since the source's previous event, so $-\log(1+\Delta t_u)$ is a recency score; the MLP is a two-layer network on $\log(1+n_u)$ fitted on the training period. $\star$: the main results. Bold: best.}
+\label{tab:a3_transductive_inductive}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.9}
+\begin{tabular}{lccccc}
+\toprule
+term $b$ & Wikipedia & Reddit & UCI & Enron & LastFM \\
+\midrule
+none ($f$ alone, $\beta=0$) & 86.19{\tiny$\pm$1.21} & 90.62{\tiny$\pm$0.27} & 83.35{\tiny$\pm$0.29} & 85.32{\tiny$\pm$0.85} & 73.96{\tiny$\pm$0.95} \\
+$\log\lambda_u$ (SNAM)$^\star$ & 91.23{\tiny$\pm$0.09} & 91.79{\tiny$\pm$0.13} & 88.18{\tiny$\pm$0.04} & \textbf{89.04}{\tiny$\pm$0.18} & 89.82{\tiny$\pm$0.71} \\
+\midrule
+$\log(1+n_u^{K})$ & 88.31{\tiny$\pm$0.23} & 91.75{\tiny$\pm$0.16} & 83.35{\tiny$\pm$0.29} & 86.50{\tiny$\pm$0.78} & 82.27{\tiny$\pm$0.85} \\
+$\log(1+n_u^{K/2})$ & 89.44{\tiny$\pm$0.44} & 91.26{\tiny$\pm$0.19} & 86.85{\tiny$\pm$0.48} & 88.93{\tiny$\pm$0.39} & 85.23{\tiny$\pm$0.89} \\
+$-\log(1+\Delta t_u)$ & 90.39{\tiny$\pm$0.32} & 91.44{\tiny$\pm$0.24} & \textbf{88.66}{\tiny$\pm$0.07} & 87.47{\tiny$\pm$0.47} & \textbf{89.93}{\tiny$\pm$0.70} \\
+MLP on $\log(1+n_u)$ & \textbf{91.34}{\tiny$\pm$0.11} & \textbf{91.86}{\tiny$\pm$0.13} & 88.33{\tiny$\pm$0.06} & 87.84{\tiny$\pm$0.43} & \textbf{89.93}{\tiny$\pm$0.73} \\
+\bottomrule
+\end{tabular}
+\end{table}

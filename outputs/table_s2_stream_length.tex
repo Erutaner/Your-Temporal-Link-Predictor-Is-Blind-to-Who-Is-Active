@@ -1,0 +1,22 @@
+% requires booktabs, multirow
+\begin{table}[t]
+\caption{Cost as the stream gets longer. We cut LastFM and Flights to their first 10\%, 30\% and 100\% of events, split each prefix 70/15/15 by time on its own, trained the main configuration on it and timed one training epoch and the scoring of its test split (one RTX~5090, median of three runs). The last two columns divide by the amount of work: both times grow at most linearly with the length of the stream, and on the short prefixes the fixed cost per block dominates (LastFM keeps $C=192$ training blocks at every length, so its 10\% prefix pays about 12\,s of block overhead per epoch; Flights uses one block per time step: 5 / 17 / 90 blocks).}
+\label{tab:s2_stream_length}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{llrrrrrr}
+\toprule
+stream & prefix & train & test & epoch & s per & scoring & s per \\
+ & & edges & positives & time (s) & 100k edges & time (s) & 100k positives \\
+\midrule
+\multirow{3}{*}{LastFM} & 10\% & 74k & 19k & 12.6 & 17.1 & 1.3 & 6.8 \\
+ & 30\% & 222k & 58k & 12.8 & 5.8 & 1.7 & 2.8 \\
+ & 100\% & 723k & 194k & 21.7 & 3.0 & 7.1 & 3.7 \\
+\midrule
+\multirow{3}{*}{Flights} & 10\% & 104k & 24k & 0.5 & 0.5 & 0.5 & 1.9 \\
+ & 30\% & 328k & 84k & 2.5 & 0.8 & 0.9 & 1.0 \\
+ & 100\% & 1.10M & 288k & 13.8 & 1.2 & 2.9 & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
